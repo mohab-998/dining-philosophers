@@ -2,21 +2,13 @@ namespace DiningPhilosophers
 {
     public class Philosopher
     {
-        private const int TIMES_TO_EAT = 5;
-        private int _timesEaten = 0;
         private readonly List<Philosopher> _allPhilosophers;
         private readonly int _index;
-
-        public Philosopher(List<Philosopher> allPhilosophers, int index)
-        {
-            _allPhilosophers = allPhilosophers;
-            _index = index;
-            this.Name = string.Format("Philosopher {0}", _index);
-            this.State = State.Thinking;
-        }
-
+        public int NumEatCycles { get; private set; }
         public string Name { get; private set; }
         public State State { get; private set; }
+
+        private int _timesEaten = 0;
         public Chopstick LeftChopstick { get; set; }
         public Chopstick RightChopstick { get; set; }
 
@@ -42,10 +34,20 @@ namespace DiningPhilosophers
             }
         }
 
+        public Philosopher(List<Philosopher> allPhilosophers, int index, int numEatingCycles)
+        {
+            _allPhilosophers = allPhilosophers;
+            _index = index;
+
+            this.NumEatCycles = numEatingCycles;
+            this.Name = string.Format("Philosopher {0}", _index);
+            this.State = State.Thinking;
+        }
+
         public void EatAll()
         {
             // Cycle through thinking and eating until done eating.
-            while (_timesEaten < TIMES_TO_EAT)
+            while (_timesEaten < NumEatCycles)
             {
                 this.Think();
                 if (this.PickUp())
@@ -104,7 +106,6 @@ namespace DiningPhilosophers
             Monitor.Exit(this.RightChopstick);
             Console.WriteLine(this.Name + " puts down right chopstick.");
         }
-
 
         private void Think()
         {
