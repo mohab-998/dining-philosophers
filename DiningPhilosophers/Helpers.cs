@@ -8,7 +8,7 @@ namespace DiningPhilosophers
             var philosophers = new List<Philosopher>(philosophersCount);
             for (int i = 0; i < philosophersCount; i++)
             {
-                philosophers.Add(new Philosopher(philosophers, i));
+                philosophers.Add(new Philosopher(philosophers, i, 5));
             }
 
             // Assign chopsticks to each philosopher
