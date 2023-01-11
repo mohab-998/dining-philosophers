@@ -64,6 +64,9 @@ namespace DiningPhilosophers
 
         private bool PickUp()
         {
+            // Monitor.Enter(LeftChopstick);
+            // Monitor.Enter(RightChopstick);
+            // return true;
             // Try to pick up the left chopstick
             if (Monitor.TryEnter(this.LeftChopstick))
             {
