@@ -7,19 +7,19 @@ using System;
 
 class Program
 {
-    const int numberOfSteps = 1000_000_000;
+    const int numberOfSteps = 1000_000;
 
     /// <summary>Main method to time various implementations of computing PI.</summary>
     static void Main()
     {
-        Console.WriteLine("Function\t\t\t | Elapsed Time\t | Estimated Pi");
-        Console.WriteLine("-----------------------------------------------------------------");
+        Console.WriteLine("Function\t | Elapsed Time\t\t | Estimated Pi");
+        Console.WriteLine(new string('-', 60));
 
-        Misc.Time(PiCalculators.SerialLinqPi, "Series Linq", numberOfSteps);
-        Misc.Time(PiCalculators.ParallelLinqPi, "Parallel Linq", numberOfSteps);
-        Misc.Time(PiCalculators.SerialPi, "Series For Loop", numberOfSteps);
-        Misc.Time(PiCalculators.ParallelPi, "Parallel For Loop", numberOfSteps);
-        Misc.Time(PiCalculators.ParallelPartitionerPi, "Parallel Partitioners", numberOfSteps);
+        Misc.Time(PiCalculators.SerialLinqPi, "S-Linq".PadRight(10), numberOfSteps);
+        Misc.Time(PiCalculators.ParallelLinqPi, "P-Linq".PadRight(10), numberOfSteps);
+        Misc.Time(PiCalculators.SerialPi, "S-For Loop", numberOfSteps);
+        Misc.Time(PiCalculators.ParallelPi, "P-For Loop", numberOfSteps);
+        Misc.Time(PiCalculators.ParallelPartitionerPi, "P-Partitioners", numberOfSteps);
     }
 
 

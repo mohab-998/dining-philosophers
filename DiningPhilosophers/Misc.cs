@@ -10,6 +10,6 @@ static class Misc
     {
         var stopWatch = Stopwatch.StartNew();
         var pi = piCalculator(numberOfSteps);
-        Console.WriteLine($"{functionName}\t\t\t | {stopWatch.Elapsed}\t | {pi}");
+        Console.WriteLine($"{functionName}\t | {stopWatch.Elapsed}\t | {pi}");
     }
 }
