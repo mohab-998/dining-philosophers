@@ -2,6 +2,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading.Tasks;
+
 static class PiCalculators
 {
     /// <summary>Estimates the value of PI using a LINQ-based implementation.</summary>
